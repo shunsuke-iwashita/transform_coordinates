@@ -9,26 +9,27 @@ transform_coordinates
 │   ├── tracking
 │   │   ├── 1
 │   │   ├── ...
-│   │   └── 6  
-│   └── video  
-│       ├── 1  
-│       ├── ...  
-│       └── 6  
-└── result  
-    ├── coordinates  
-    │   ├── 1  
-    │   ├── ...  
-    │   └── 6  
-    └── video  
-        ├── 1  
-        ├── ...  
+│   │   └── 6
+│   └── video
+│       ├── 1
+│       ├── ...
+│       └── 6
+└── result
+    ├── coordinates
+    │   ├── 1
+    │   ├── ...
+    │   └── 6
+    └── video
+        ├── 1
+        ├── ...
         └── 6
 ```
 
 ### 使い方
-`python transform_coordinates`  
+`python transform_coordinates`
+
 * コート座標の保存
-* 上視点のビデオ座標の保存 (デフォルト）
+* 上視点のビデオ座標の保存 (デフォルト)
 * コート座標でのプロット動画の保存
 * 上視点のビデオ上にBounding Boxを表示した動画の保存
 
