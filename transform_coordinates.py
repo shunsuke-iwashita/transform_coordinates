@@ -8,13 +8,13 @@ import random
 
 def tracking_to_court_coordinates(video_num):
     # Load tracking data
-    tracking_file = f'asset/tracking/{video_num}/1-1.txt'
+    tracking_file = f'assets/tracking/{video_num}/1-1.txt'
     if not os.path.exists(tracking_file):
         return None
     tracking_data = pd.read_csv(tracking_file, sep=' ', header=None, names=['frame', 'id', 'bb_left', 'bb_top', 'bb_width', 'bb_height', 'conf', 'x', 'y', 'z', 'class'])
 
     # Load homography matrix
-    matrix_file = f'asset/homography_matrix/homography_matrix_{video_num}_1-1.npy'
+    matrix_file = f'assets/homography_matrix/homography_matrix_{video_num}_1-1.npy'
     homography_matrix = np.load(matrix_file)
 
     # Get player's coordinates
@@ -143,7 +143,7 @@ def court_coordinates_to_video_coordinates(court_coordinates, video_num):
     data = court_coordinates.copy()
 
     # Load homography matrix
-    matrix_file = f'asset/homography_matrix/homography_matrix_{video_num}_1.npy'
+    matrix_file = f'assets/homography_matrix/homography_matrix_{video_num}_1.npy'
     homography_matrix = np.load(matrix_file)
 
     # Convert court coordinates to video coordinates
@@ -181,7 +181,7 @@ def court_coordinates_to_video_coordinates(court_coordinates, video_num):
 
 def plot_on_video(data, video_num):
     # Load the video
-    video_file = f'asset/video/{video_num}/1.mov'
+    video_file = f'assets/video/{video_num}/1.mov'
     cap = cv2.VideoCapture(video_file)
     if not cap.isOpened():
         print(f'Error opening video file {video_file}')
@@ -255,11 +255,11 @@ def main():
         os.makedirs(video_coordinates_path, exist_ok=True)
         video_coordinates.to_csv(f'{video_coordinates_path}/video_coordinates.txt', index=False)
 
-        # Set filed
-        field_image = create_field()
+        # # Set filed
+        # field_image = create_field()
 
-        # Plot the tracking data on the field
-        plot_on_field(court_coordinates, field_image, video_num)
+        # # Plot the tracking data on the field
+        # plot_on_field(court_coordinates, field_image, video_num)
         # # Save the video
         # plot_on_video(video_coordinates, video_num)
 
